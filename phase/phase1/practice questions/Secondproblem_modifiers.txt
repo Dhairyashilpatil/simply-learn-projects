@@ -1,0 +1,130 @@
+Types of access modifiers in java
+
+
+There are four access modifiers keywords in Java and they are:
+
+Modifier	Description
+Default	declarations are visible only within the package (package private)
+Private	declarations are visible within the class only
+Protected	declarations are visible within the package or all subclasses
+Public	declarations are visible everywhere
+
+
+
+examples 
+
+
+1)Default Access Modifier
+package defaultPackage;
+class Logger {
+    void message(){
+        System.out.println("This is a message");
+    }
+}
+
+
+
+Description-Here, the Logger class has the default access modifier. And the class is visible to all the classes that belong to the defaultPackage package. However, if we try to use the Logger class in another class outside of defaultPackage, we will get a compilation error.
+
+
+
+
+2)Private Access Modifier
+
+
+class Data {
+    // private variable
+    private String name;
+}
+
+public class Main {
+    public static void main(String[] main){
+
+        // create an object of Data
+        Data d = new Data();
+
+        // access private variable and field from another class
+        d.name = "Programiz";
+    }
+}
+
+
+
+Description-The error is generated because we are trying to access the private variable and the private method of the Data class from the Main class.
+
+
+3)Protected Access Modifier
+
+class Animal {
+    // protected method
+    protected void display() {
+        System.out.println("I am an animal");
+    }
+}
+
+class Dog extends Animal {
+    public static void main(String[] args) {
+
+        // create an object of Dog class
+        Dog dog = new Dog();
+         // access protected method
+        dog.display();
+    }
+}
+
+
+Description - We then created an object dog of the Dog class. Using the object we tried to access the protected method of the parent class.
+
+Since protected methods can be accessed from the child classes, we are able to access the method of Animal class from the Dog class.
+
+
+4)Public Access Modifier-
+// Animal.java file
+// public class
+public class Animal {
+    // public variable
+    public int legCount;
+
+    // public method
+    public void display() {
+        System.out.println("I am an animal.");
+        System.out.println("I have " + legCount + " legs.");
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main( String[] args ) {
+        // accessing the public class
+        Animal animal = new Animal();
+
+        // accessing the public variable
+        animal.legCount = 4;
+        // accessing the public method
+        animal.display();
+    }
+}
+
+Description -The public class Animal is accessed from the Main class.
+The public variable legCount is accessed from the Main class.
+The public method display() is accessed from the Main class.
+
+
+output of all above 4 programmes-
+
+2)Main.java:18: error: name has private access in Data
+        d.name = "Programiz";
+
+output=The name is Programiz using getter and setter method
+3)I am an animal
+
+
+4)I am an animal
+  I have four leg.
+
+         
+
+
+
+ 
+
